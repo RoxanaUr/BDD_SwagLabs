@@ -8,8 +8,8 @@ class InventoryPage(BasePage):
     URL = 'https://www.saucedemo.com/inventory.html'
     TITLE_SELECTOR = (By.CLASS_NAME, 'title')
     PRODUCTS_SELECTOR = (By.CLASS_NAME, 'inventory_item')
-    ADD_TO_CART_SELECTOR = (By.ID, "add-to-cart-sauce-labs-onesie")
-    REMOVE_FROM_CART_SELECTOR = (By.ID, "remove-sauce-labs-onesie")
+    ADD_TO_CART_ONESIE_SELECTOR = (By.ID, 'add-to-cart-sauce-labs-onesie')
+    REMOVE_FROM_CART_ONESIE_SELECTOR = (By.ID, 'remove-sauce-labs-onesie')
     CART_BADGE_SELECTOR = (By.XPATH, '//span[@class="shopping_cart_badge"]')
 
     def get_page_title(self):
@@ -20,13 +20,13 @@ class InventoryPage(BasePage):
         products = self.driver.find_elements(*self.PRODUCTS_SELECTOR)
         return len(products)
 
-    def add_product_to_cart(self):
-        add_to_cart_button = self.driver.find_element(*self.ADD_TO_CART_SELECTOR)
+    def add_onesie_to_cart(self):
+        add_to_cart_button = self.driver.find_element(*self.ADD_TO_CART_ONESIE_SELECTOR)
         add_to_cart_button.click()
 
-    def remove_button_exists(self):
+    def remove_onesie_is_displayed(self):
         try:
-            self.driver.find_element(*self.REMOVE_FROM_CART_SELECTOR)
+            self.driver.find_element(*self.REMOVE_FROM_CART_ONESIE_SELECTOR)
             return True
         except NoSuchElementException:
             return False
