@@ -20,3 +20,11 @@ def step_impl(context):
 def step_impl(context):
     expected_err_msg = 'Epic sadface: Username and password do not match any user in this service'
     assert context.login_page.get_error_message() == expected_err_msg
+
+@Then("I am on the Inventory page")
+def step_impl(context):
+    #1. Ne asiguram ca avem URL-ul corect
+    assert context.browser.get_current_url() == context.inventory_page.URL
+
+    #2. Verificam ca avem titlul corect in pagina
+    assert context.inventory_page.get_page_title() == 'PRODUCTS'

@@ -11,6 +11,9 @@ class Browser:
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
+    def get_current_url(self):
+        return self.driver.current_url
+
     def close(self):
         self.driver.close()
 
