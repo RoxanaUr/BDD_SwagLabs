@@ -57,3 +57,22 @@ def step_impl(context):
 def step_impl(context):
     assert context.inventory_page.get_cart_badge_counter() == '1'
 
+
+@When('I click on the cart button')
+def step_impl(context):
+    context.inventory_page.access_shopping_cart()
+
+
+# @Then('The item is on the Cart Page')
+# def step_impl(context):
+#     assert context.browser.get_current_url() == context.cart_page.URL
+#     assert context.cart_page.get_cart_page_title() == 'YOUR CART'
+#
+# @Then('Has the same description')
+# def step_impl(context):
+#     pass
+#
+#
+# @Then('Has the same price')
+# def step_impl(context):
+#     pass

@@ -11,6 +11,8 @@ class InventoryPage(BasePage):
     ADD_TO_CART_ONESIE_SELECTOR = (By.ID, 'add-to-cart-sauce-labs-onesie')
     REMOVE_FROM_CART_ONESIE_SELECTOR = (By.ID, 'remove-sauce-labs-onesie')
     CART_BADGE_SELECTOR = (By.XPATH, '//span[@class="shopping_cart_badge"]')
+    CART_BUTTON_SELECTOR = (By.XPATH, '//a[@class="shopping_cart_link"]')
+
 
     def get_page_title(self):
         title_element = self.driver.find_element(*self.TITLE_SELECTOR)
@@ -34,3 +36,9 @@ class InventoryPage(BasePage):
     def get_cart_badge_counter(self):
         cart_badge_counter = self.driver.find_element(*self.CART_BADGE_SELECTOR)
         return cart_badge_counter.text
+
+    def access_shopping_cart(self):
+        cart_button = self.driver.find_element(*self.CART_BUTTON_SELECTOR)
+        cart_button.click()
+
+

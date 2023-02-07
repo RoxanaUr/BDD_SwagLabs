@@ -12,10 +12,20 @@ Feature: Inventory Page
     Then I am redirected to Login page
     And I receive a Epic sadface error message
 
-  @single
+
   Scenario: Add item to cart
     Given I am a logged in user
     And I am on the Inventory page
     When I add an item to cart
     Then The product button changes to Remove
     And The cart counter is incremented by one
+
+  @single
+  Scenario: Added item appear to Cart page
+    Given I am a logged in user
+    And I am on the Inventory page
+    When I add an item to cart
+    And I click on the cart button
+    Then The item is on the Cart Page
+    And Has the same description
+    And Has the same price

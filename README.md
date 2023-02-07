@@ -1,4 +1,5 @@
 # BDD_SwagLabs
+# Automation Framework with Python behave/ Selenium/ Gerkin
 
 ## Instalare si rulare
 
